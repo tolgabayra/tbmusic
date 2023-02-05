@@ -11,6 +11,8 @@ export default function Home() {
     const [selected2, setSelected2] = useState<Array<any>>([])
 
 
+    const api_key = "6243700331a88e33ea685b74f6fa2926"
+
 
     useEffect(() => {
         console.log(selected);
@@ -21,6 +23,15 @@ export default function Home() {
     useEffect(() => {
         console.log(selected2)
     }, [selected2])
+
+
+    useEffect(() => {
+      mainAxios.get("https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=cher&api_key=6243700331a88e33ea685b74f6fa2926&format=json")
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(err=>console.log(err))
+    },[])
 
     // Suggest Request
     const submitRequest = () => {
