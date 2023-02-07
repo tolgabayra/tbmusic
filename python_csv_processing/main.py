@@ -1,12 +1,20 @@
 import pandas as pd
 
-col_names = [
-    "title"
-]
+# nryg = Enerji
+# val = positif mod
 
-df = pd.read_csv("music.csv", header=0, usecols=["title", "artist", "top genre", "year", "dnce"])
+# Mods;  Happy, Energetic, Sad, Calm, Study
 
-rsf_filter = df[df['year'] > 2015]
+df = pd.read_csv("music.csv", header=0, usecols=["title", "artist", "top genre", "nrgy", "year", "dnce", "val"])
+
+rsf_filter = df[(df.dnce < 50) & (df.title == 'Let Me')]
+
+year_filter = df[df['year'] > 2010]
+happy_filter = ""
+energetic_filter = ""
+calm_and_sad_filter = ""
+
+
 
 # print(df.to_string())
 
